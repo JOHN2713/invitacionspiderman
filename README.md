@@ -24,12 +24,32 @@ Una invitación interactiva con temática de Spider-Man para ir al cine.
 2. Abre `index.html` en tu navegador
 3. ¡Disfruta la experiencia!
 
+## � Funcionalidad de Email
+
+Este proyecto usa **EmailJS** para enviar notificaciones por correo electrónico cuando alguien completa la invitación.
+
+**Características:**
+- ✅ Validación de email en tiempo real
+- ✅ Envío automático de correo con plantilla HTML personalizada
+- ✅ Almacenamiento local de datos (localStorage)
+- ✅ Plantilla con diseño Spider-Man
+
+**Datos enviados:**
+- Email del invitado
+- Color de hoddie seleccionado
+- Fecha elegida
+- Timestamp de la respuesta
+
 ## 📁 Archivos
 
-- `index.html` - Estructura HTML
+- `index.html` - Estructura HTML con integración EmailJS
 - `style.css` - Estilos y animaciones
-- `script.js` - Lógica interactiva
+- `script.js` - Lógica interactiva y envío de emails
 - `spidermanhoddie.png` - Imagen del hoddie
+
+## 🌐 Link del proyecto
+
+https://john2713.github.io/invitacionspiderman/
 
 ## 💕 Hecho con amor
 
