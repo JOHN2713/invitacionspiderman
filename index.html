@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Invitación Especial 🕷️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Telaraña animada de fondo -->
+    <div class="web-bg"></div>
+    <div class="web-bg web-bg-2"></div>
+    
+    <!-- Paso 1: Invitación al Cine -->
+    <div id="step1" class="step active">
+        <div class="container">
+            <div class="spiderman-logo">🕷️</div>
+            <h1 class="glitch" data-text="¡Hola Liz!">¡Hola Liz!</h1>
+            <div class="movie-poster">
+                <div class="poster-frame">
+                    <h2>SPIDER-MAN</h2>
+                    <p class="subtitle">Brand New Day</p>
+                </div>
+            </div>
+            <p class="invitation-text">
+                Con grandes poderes vienen grandes responsabilidades...<br>
+                Y mi responsabilidad es invitarte al cine 🎬
+            </p>
+            <p class="question">¿Aceptarías ir conmigo?</p>
+            <div class="buttons-container">
+                <button id="btnYes" class="btn btn-yes">
+                    <span>¡SÍ! 💕</span>
+                </button>
+                <button id="btnNo" class="btn btn-no">
+                    <span>No</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paso 2: Selección de Hoddie -->
+    <div id="step2" class="step">
+        <div class="container">
+            <div class="spiderman-logo">🕷️</div>
+            <h1 class="glitch" data-text="¡Genial!">¡Genial!</h1>
+            <p class="invitation-text">
+                Como todo Spider-Man necesita su traje...<br>
+                ¿Qué color de hoddie te gustaría que lleve?
+            </p>
+            <div class="hoddie-selection">
+                <div class="hoddie-option" data-color="rojo">
+                    <div class="hoddie-card red-card">
+                        <div class="hoddie-preview">
+                            <img id="hoddieRed" src="spidermanhoddie.png" alt="Hoddie Rojo">
+                        </div>
+                        <button class="btn btn-hoddie">Rojo 🔴</button>
+                    </div>
+                </div>
+                <div class="hoddie-option" data-color="negro">
+                    <div class="hoddie-card black-card">
+                        <div class="hoddie-preview">
+                            <img id="hoddieBlack" src="spidermanhoddie.png" alt="Hoddie Negro">
+                        </div>
+                        <button class="btn btn-hoddie">Negro ⚫</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paso 3: Selección de Fecha -->
+    <div id="step3" class="step">
+        <div class="container">
+            <div class="spiderman-logo">🕷️</div>
+            <h1 class="glitch" data-text="¡Excelente elección!">¡Excelente elección!</h1>
+            <p class="invitation-text">
+                El calendario de un Spider-Man es complicado...<br>
+                ¿Qué día te viene mejor? 📅
+            </p>
+            <div class="date-selection">
+                <div class="date-card" data-date="30 de Julio">
+                    <div class="date-icon">📆</div>
+                    <h3>30 de Julio</h3>
+                    <p>Miércoles</p>
+                    <button class="btn btn-date">Seleccionar</button>
+                </div>
+                <div class="date-card" data-date="31 de Julio">
+                    <div class="date-icon">📆</div>
+                    <h3>31 de Julio</h3>
+                    <p>Jueves</p>
+                    <button class="btn btn-date">Seleccionar</button>
+                </div>
+                <div class="date-card" data-date="1 de Agosto">
+                    <div class="date-icon">📆</div>
+                    <h3>1 de Agosto</h3>
+                    <p>Viernes</p>
+                    <button class="btn btn-date">Seleccionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paso 4: Confirmación Final -->
+    <div id="step4" class="step">
+        <div class="container">
+            <div class="spiderman-logo">🕷️</div>
+            <h1 class="glitch" data-text="¡Es una cita!">¡Es una cita!</h1>
+            <div class="confirmation-card">
+                <div class="web-decoration">🕸️</div>
+                <h2>Detalles de nuestra cita</h2>
+                <div class="detail-row">
+                    <span class="detail-label">Película:</span>
+                    <span class="detail-value">Spider-Man: Brand New Day</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Hoddie:</span>
+                    <span id="selectedHoddie" class="detail-value">-</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Fecha:</span>
+                    <span id="selectedDate" class="detail-value">-</span>
+                </div>
+                <div class="email-input-container">
+                    <label for="emailInput">📧 Tu correo electrónico:</label>
+                    <input type="email" id="emailInput" placeholder="liz@ejemplo.com" required>
+                    <span class="email-error" id="emailError">Por favor ingresa un correo válido</span>
+                </div>
+                <div class="heart-animation">💕</div>
+                <p class="final-message">
+                    "Con este gran poder viene una gran emoción..."<br>
+                    ¡No puedo esperar para verte, Liz! 🕷️❤️
+                </p>
+                <button id="btnConfirm" class="btn btn-confirm">
+                    ¡Confirmar Cita! 🎉
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensaje Final -->
+    <div id="finalMessage" class="final-screen">
+        <div class="container">
+            <div class="success-icon">✨🕷️✨</div>
+            <h1 class="glitch" data-text="¡Confirmado!">¡Confirmado!</h1>
+            <p class="success-text">
+                Tu Spider-Man estará esperándote con ansias 💕<br>
+                ¡Será una cita increíble!
+            </p>
+            <div class="web-heart">❤️</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
