@@ -4,6 +4,9 @@ let selectedDate = '';
 let userEmail = '';
 let noClickCount = 0;
 
+// Inicializar EmailJS
+emailjs.init('RwSEpbUI9wg0h9-QP');
+
 // Elementos del DOM
 const step1 = document.getElementById('step1');
 const step2 = document.getElementById('step2');
@@ -157,30 +160,70 @@ btnConfirm.addEventListener('click', function() {
     emailError.classList.remove('show');
     emailInput.style.borderColor = 'rgba(212, 21, 21, 0.5)';
     
-    // Guardar datos
+    // Deshabilitar botón mientras se envía
+    btnConfirm.disabled = true;
+    btnConfirm.innerHTML = '<span>Enviando... 🕷️</span>';
+    btnConfirm.style.opacity = '0.7';
+    
+    // Preparar datos para el email
+    const timestamp = new Date().toLocaleString('es-ES', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+    
     const invitationData = {
         email: userEmail,
         hoddie: selectedHoddie,
         fecha: selectedDate,
-        timestamp: new Date().toISOString()
+        timestamp: timestamp
     };
     
     // Guardar en localStorage
     localStorage.setItem('invitacionSpiderman', JSON.stringify(invitationData));
     
-    // Mostrar en consola
-    console.log('📧 Datos de la invitación:', invitationData);
+    // Enviar email con EmailJS
+    const templateParams = {
+        user_email: userEmail,
+        hoddie_color: selectedHoddie.charAt(0).toUpperCase() + selectedHoddie.slice(1),
+        selected_date: selectedDate,
+        timestamp: timestamp
+    };
     
-    // Efecto de fuegos artificiales
-    createFireworks();
-    
-    setTimeout(() => {
-        step4.classList.remove('active');
-        finalMessage.classList.add('active');
-        
-        // Efecto de corazones cayendo
-        createFallingHearts();
-    }, 1000);
+    emailjs.send('service_3amao1p', 'template_cjyh1xt', templateParams)
+        .then(function(response) {
+            console.log('✅ Email enviado exitosamente:', response.status, response.text);
+            console.log('📧 Datos de la invitación:', invitationData);
+            
+            // Efecto de fuegos artificiales
+            createFireworks();
+            
+            setTimeout(() => {
+                step4.classList.remove('active');
+                finalMessage.classList.add('active');
+                
+                // Efecto de corazones cayendo
+                createFallingHearts();
+            }, 1000);
+        }, function(error) {
+            console.error('❌ Error al enviar email:', error);
+            
+            // Mostrar mensaje de error pero continuar
+            btnConfirm.innerHTML = '<span>Error en envío, pero continuemos... ✨</span>';
+            btnConfirm.style.opacity = '1';
+            
+            setTimeout(() => {
+                createFireworks();
+                
+                setTimeout(() => {
+                    step4.classList.remove('active');
+                    finalMessage.classList.add('active');
+                    createFallingHearts();
+                }, 1000);
+            }, 1500);
+        });
 });
 
 // Función para validar email
